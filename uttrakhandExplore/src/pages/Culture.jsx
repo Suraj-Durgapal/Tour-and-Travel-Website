@@ -195,7 +195,7 @@ const Culture = () => {
 </section>
 
       {/* CUISINE – HORIZONTAL SCROLL */}
-      <section className="py-24 px-6 md:px-20">
+      {/* <section className="py-24 px-6 md:px-20">
         <h2 className="text-4xl font-serif font-bold text-center mb-16">
           Traditional Cuisine
         </h2>
@@ -212,7 +212,7 @@ const Culture = () => {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
     </div>
   );

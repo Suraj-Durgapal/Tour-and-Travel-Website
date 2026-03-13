@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div>
+    <div className="sticky w-full top-0 left-0 bg-white shadow-lg z-50">
       <div className="flex justify-around bg-[#faf0f0b3] p-4    ">
         <div>
           <h1 className="text-4xl font-bold mr-20">Uttrakhand</h1>
