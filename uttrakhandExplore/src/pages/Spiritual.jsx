@@ -137,7 +137,7 @@ export default function Spiritual() {
     const [activeTemple, setActiveTemple] = useState(temples[0]);
     return (
       <div className="
-      bg-[#fffcf7] min-h-screen font-serif text-[#2a2a2a]">
+      bg-primary min-h-screen font-serif text-[#2a2a2a]">
   
         {/* HERO */}
         <div className="
@@ -147,7 +147,7 @@ export default function Spiritual() {
           <h1 className="text-7xl font-bold text-white">
             Spiritual Uttarakhand
           </h1>
-          <p className=" mt-3 text-sm max-w-xl mx-auto bg-blue-500 text-white">
+          <p className=" mt-3 text-sm max-w-xl mx-auto bg-slate-300 opacity-60 text-black ">
             Where every river is sacred, every mountain is divine,
             and every path leads to something greater than oneself.
           </p>

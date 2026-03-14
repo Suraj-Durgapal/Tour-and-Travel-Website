@@ -5,7 +5,6 @@ const HotelCards = ({ hoteldata }) => {
     <div className="flex gap-6 p-3 bg-white rounded-lg transition w-full cursor-pointer border-2 border-transparent hover:border-neutral-400"
     
     >
-
       {/* Image */}
       <div className="w-1/3">
         <img

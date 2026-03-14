@@ -3,7 +3,7 @@ const  hotels = [
       id: 1,
       img: "https://images.pexels.com/photos/3688261/pexels-photo-3688261.jpeg",
       name: "Mountain View Resort",
-      location: "Nanital, Uttrakhand",
+      location: "Nainital, Uttrakhand",
       rating: 4.1,
       reviews: (128),
       amenities: [

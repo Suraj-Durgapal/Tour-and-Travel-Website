@@ -2,6 +2,7 @@ import React from "react";
 import { IoCall } from "react-icons/io5";
 import { MdChat } from "react-icons/md";
 import { MdEmail } from "react-icons/md";
+import cntimage from '../assets/image/contact.jpg'
 // import contimg from '../assets/image/'
 
 const Contact = () => {
@@ -11,6 +12,11 @@ const Contact = () => {
     })
   return (
     <div>
+        <section className="bg-neutral-500 h-[50vh]">
+            <div className="flex items-center justify-center  h-full">
+                <h1 className="text-7xl font-semibold ">Contact Us</h1>
+            </div>
+        </section>
       <div className="p-20 flex">
         <div className="p-20">
           <div>
@@ -37,8 +43,8 @@ const Contact = () => {
                 <MdEmail />
                 <h4>VIA EMAIL FORM</h4>
               </div>
-              <div className="flex flex-col gap-4 relative w-3/4">
-                <div className="w-full">
+              <div className="flex flex-col gap-4 relative w-full">
+                <div className="w-[84%]">
                   <label
                     className="absolute -top-4 left-4 bg-white p-1"
                     htmlFor="name"
@@ -47,7 +53,7 @@ const Contact = () => {
                   </label>
                   <input className="border-2 p-2 w-full" type="text" />
                 </div>
-                <div className="relative">
+                <div className="relative w-[84%]">
                   <label
                     className="absolute -top-4 p-1 left-3 bg-white"
                     htmlFor="name"
@@ -63,7 +69,7 @@ const Contact = () => {
                 {/* <label
                             className='absolute'
                             htmlFor="name">Email</label> */}
-                <div className="relative w-full">
+                <div className="relative w-[84%]">
                   <label
                     className=" absolute p-1 -top-4 left-3 bg-white"
                     htmlFor="text"
@@ -82,11 +88,10 @@ const Contact = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="w-full">
           <img
-            src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
-                "
-            alt=""
+            src={cntimage}
+            alt="contact image"
           />
         </div>
       </div>

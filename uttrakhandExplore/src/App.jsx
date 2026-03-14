@@ -10,6 +10,7 @@ import TourPackages from "./pages/Tour/TourPackages";
 // import TourDetails from "./pages/Tour/TourDetails";
 import CharDham from "./pages/Tour/TourPages/CharDham";
 import Hotel from "./pages/Hotel/Hotel";
+import HotelDetails from "./pages/Hotel/HotelDetails";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/tourpackages" element={<TourPackages/>}  />
           <Route path="/hotel" element={<Hotel/>}  />
+          <Route path="/hotel/:id" element={<HotelDetails />} />
           <Route path="chardham" element={<CharDham/>}  />
           <Route path="destination" element={<Destination />} />
           <Route path="culture" element={<Culture />} />

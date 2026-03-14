@@ -24,6 +24,43 @@ const destinations = [
   },
 ];
 
+const destiImages =[
+    {
+        img:"https://images.unsplash.com/photo-1706773246562-e60295a060a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXVsaXxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    {
+        img:"https://images.unsplash.com/photo-1623997098339-48c8f3fc9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGF1bGl8ZW58MHx8MHx8fDA%3D"
+    },
+    {
+        img:"https://images.unsplash.com/photo-1687511741630-18fe16e8ed7e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHV0dHJha2hhbmR8ZW58MHx8MHx8fDA%3D"
+    },
+    {
+        img:"https://cdn.pixabay.com/photo/2014/09/30/22/16/great-falls-467599_1280.jpg"
+    },
+    {
+        img:"https://images.pexels.com/photos/7187713/pexels-photo-7187713.jpeg"
+    },
+    {
+        img:"https://cdn.pixabay.com/photo/2019/08/13/14/35/nature-4403565_1280.jpg"
+    },
+    {
+        img:"https://images.unsplash.com/photo-1698574996391-73f103113f60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGtlZGFybmF0aHxlbnwwfHwwfHx8MA%3D%3D"
+    },
+    {
+        img:"https://imgs.search.brave.com/VGRcE0qkZVPMVDpfRCzdxQwdBf5HnvtStkeCGr3IoAI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jaGFs/YmFuamFyZS5jb20v/Y3JtL3N5c19pbWFn/ZXMvS2FpbmNoaV9E/aGFtMTc2NDkyNzU4/Ni53ZWJw"
+    },
+    {
+        img:"https://images.pexels.com/photos/10432965/pexels-photo-10432965.jpeg"
+    },
+    {
+        img:"https://images.pexels.com/photos/19877300/pexels-photo-19877300.jpeg"
+    },
+    {
+        img:"https://images.unsplash.com/photo-1699214101660-df4e21fbabcd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGNob3B0YXxlbnwwfHwwfHx8MA%3D%3D"
+        
+    }
+]
+
 export default function Destinations() {
   return (
     <div className="bg-gray-50">
@@ -158,48 +195,20 @@ export default function Destinations() {
           Destination Gallery
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <img
-            src="https://images.unsplash.com/photo-1706773246562-e60295a060a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXVsaXxlbnwwfHwwfHx8MA%3D%3D"
-            className="rounded-xl"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1623997098339-48c8f3fc9f36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGF1bGl8ZW58MHx8MHx8fDA%3D"
-            className="rounded-xl"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1687511741630-18fe16e8ed7e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHV0dHJha2hhbmR8ZW58MHx8MHx8fDA%3D"
-            className="rounded-xl"
-          />
-          <img
-            src="https://cdn.pixabay.com/photo/2014/09/30/22/16/great-falls-467599_1280.jpg"
-            className="rounded-xl"
-          />
-          <img
-            src="https://images.pexels.com/photos/7187713/pexels-photo-7187713.jpeg"
-            className="rounded-xl"
-          /> 
-          <img
-            src="https://cdn.pixabay.com/photo/2019/08/13/14/35/nature-4403565_1280.jpg"
-            className="rounded-xl"
-          />       
-          <img
-            src="https://images.unsplash.com/photo-1698574996391-73f103113f60?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGtlZGFybmF0aHxlbnwwfHwwfHx8MA%3D%3D"
-            className="rounded-xl"
-          /> 
-          <img
-            src="https://imgs.search.brave.com/VGRcE0qkZVPMVDpfRCzdxQwdBf5HnvtStkeCGr3IoAI/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jaGFs/YmFuamFyZS5jb20v/Y3JtL3N5c19pbWFn/ZXMvS2FpbmNoaV9E/aGFtMTc2NDkyNzU4/Ni53ZWJw"
-            className="rounded-xl"
-          /> 
-          <img
-            src="https://images.pexels.com/photos/10432965/pexels-photo-10432965.jpeg"
-            className="rounded-xl"
-          /> 
-          <img
-            src="https://images.pexels.com/photos/19877300/pexels-photo-19877300.jpeg"
-            className="rounded-xl"
-          /> 
+        {/* <div className=" column-[500p"> */}
+        <div className="columns-1 sm:columns-2 md:columns-3  gap-4 p-4">
+            {destiImages.map((image, index) => (
+                <div key={index} className="mb-4 break-inside-avoid">
+                <img
+                    src={image.img}
+                    alt=""
+                    className="w-full rounded-md"
+                />
+                </div>
+            ))}
         </div>
+            
+        {/* </div> */}
       </section>
 
     </div>
