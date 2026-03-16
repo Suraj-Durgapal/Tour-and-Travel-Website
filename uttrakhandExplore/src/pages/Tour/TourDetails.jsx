@@ -35,11 +35,8 @@ const TourDetails = () => {
         
       {/* HERO */}
         <section
-            className="h-[40vh] flex items-center justify-center bg-cover bg-center text-white"
-            style={{
-            backgroundImage:
-                "url(https://images.unsplash.com/photo-1647766888470-c77dc3df2f4f?q=80&w=1511&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)",
-            }}
+            className="h-[40vh] flex items-center justify-center bg-cover bg-center text-white bg-[url('')]"
+            
         >
             <div className="p-10 rounded-xl text-center">
             <h1 className="text-5xl font-bold mb-4">

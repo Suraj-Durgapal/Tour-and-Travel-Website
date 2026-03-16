@@ -136,11 +136,11 @@ export default function TourPackages() {
         className="h-[40vh] flex items-center justify-center bg-cover bg-center text-white"
         style={{
           backgroundImage:
-            "url(https://images.unsplash.com/photo-1689676452888-c9ccc1896e96?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dXR0YXJha2hhbmQlMjBpbmRpYXxlbnwwfHwwfHx8MA%3D%3D  )",
+            "url(https://cdn.pixabay.com/photo/2020/06/14/15/55/landscape-5298395_1280.jpg)",
         }}
       >
         <div className="p-10 rounded-xl text-center">
-          <h1 className="text-5xl font-bold mb-4">Uttarakhand Tour Packages</h1>
+          <h1 className="text-5xl font-bold mb-4 shadow-2xl shadow-black ">Uttarakhand Tour Packages</h1>
           <p className="max-w-xl">
             Explore the mountains, temples and adventure of Devbhoomi with our
             curated travel experiences.

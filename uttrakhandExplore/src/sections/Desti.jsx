@@ -30,8 +30,8 @@ const Desti = ({ title, image }) => {
             {/* <div className=" border-neutral-400 w-90"></div> */}
             {/* <hr  className="w-20vw"/> */}
             
-            <hr  className="w-20vw"/>
-            <div className="p-20 pt-1 pb-18   0 ">
+            <hr  className="w-[85%] mx-25"/>
+            <div className="p-20 pt-1 pb-18 ">
             <h1 className="font-bold text-6xl px-10 pt-14 pb-5">POPULAR DESTINATION</h1>
                 <div className="grid md:grid-cols-3 gap-8 p-10">
                 {places.map((items, index) => (

@@ -8,16 +8,16 @@ import { useState } from "react";
 
 const Hotel = () => {
   const filterside = [
-    {
-      id: "Room",
-      head: "Room",
-      options: [
-        { value: "single", label: "Single" },
-        { value: "double", label: "Double" },
-        { value: "family", label: "Family" },
-        { value: "luxury room", label: "Luxury Room" },
-      ],
-    },
+    // {
+    //   id: "Room",
+    //   head: "Room",
+    //   options: [
+    //     { value: "single", label: "Single" },
+    //     { value: "double", label: "Double" },
+    //     { value: "family", label: "Family" },
+    //     { value: "luxury room", label: "Luxury Room" },
+    //   ],
+    // },
     {
       id: "Price",
       head: "Price",
@@ -28,16 +28,16 @@ const Hotel = () => {
         { value: "₹5000", label: " above ₹5000" },
       ],
     },
-    {
-      id: "sortby",
-      head: "Sort By",
-      options: [
-        { value: "ltoh", label: "Price Low to High" },
-        { value: "htol", label: "Price High to Low" },
-        // {value:"family", label:"Family"},
-        // {value:"luxury room", label:"Luxury Room"}
-      ],
-    },
+    // {
+    //   id: "sortby",
+    //   head: "Sort By",
+    //   options: [
+    //     { value: "ltoh", label: "Price Low to High" },
+    //     { value: "htol", label: "Price High to Low" },
+    //      {value:"family", label:"Family"},
+    //     {value:"luxury room", label:"Luxury Room"}
+    //   ],
+    
     {
       id: "Rating",
       head: "Rating",
@@ -47,55 +47,68 @@ const Hotel = () => {
         { value: "4.5+", label: "4.5+" },
       ],
     },
-  ];
+  ]
 
   const [searchlocation, setSearch] = useState("");
   const [inputValue, setInputValue] = useState("");
 
-  const filteredHotels = hotels.filter((hotel) =>
-    hotel.location.toLowerCase().includes(searchlocation.toLowerCase()),
-  );
+//   const filteredHotels = hotels.filter((hotel) =>
+//     hotel.location.toLowerCase().includes(searchlocation.toLowerCase()),
+//   );
 
   const handleSearch = () => {
     setSearch(inputValue);
-  };
+  };    
 
-  const checkboxChange = () =>{
 
-  }
+   //? Filter By Category
+    const [filters, setFilters] = useState({
+        price: [],
+        rating: []
+    });
 
-  // const [filters, setFilters] = useState({
-  //     price: [],
-  //     rating: [], 
-  //     sortbyprice: ""
-  //   });
+    const handleFilterChange = (type, value, checked) => {
 
-  //   const handleFilterChange = (category, value, checked) => {
-  //     setFilters((prev) => {
-  //       const updated = checked
-  //         ? [...prev[category], value]
-  //         : prev[category].filter((v) => v !== value);
+        setFilters(prev => {
+          if (checked) {
+            return { ...prev, [type]: [...prev[type], value] }
+          } 
+          else {
+            return { ...prev, [type]: prev[type].filter(v => v !== value) }
+          }
+        })
+      
+    }
 
-  //       return { ...prev, [category]: updated };
-  //     });
-  //   };
+    const filteredHotels = hotels.filter(hotel => {
 
-  //   const filteredHotels = hotels.filter((hotel) => {
-  //     if (filters.price.length) {
-  //       if (!filters.price.includes(hotel.priceRange)) return false;
-  //     }
-
-  //     if (filters.rating.length) {
-  //       if (!filters.rating.some((r) => hotel.rating >= r)) return false;
-  //     }
-
-  //     return true;
-  //   });
+        // location search
+        const matchSearch =
+          searchlocation === "" ||
+          hotel.location.toLowerCase().includes(searchlocation.toLowerCase())
+      
+        // price filter
+        const matchPrice =
+          filters.price.length === 0 ||
+          filters.price.some(range => {
+            if(range === "0-1000") return hotel.price <= 1000
+            if(range === "1000-2500") return hotel.price >1000 && hotel.price<=2500
+            if(range === "2500-5000") return hotel.price >2500 && hotel.price<=5000
+            if(range === "5000+") return hotel.price >5000
+          })
+      
+        // rating filter
+        const matchRating =
+          filters.rating.length === 0 ||
+          filters.rating.some(r => hotel.rating >= r)
+      
+        return matchSearch && matchPrice && matchRating
+      })
 
   return (
     <div className="bg-[#f8f6f2] text-gray-800 h-full ">
-      <div className="bg-emerald-200 h-[25vh] pt-10 w-full">
-        <h1 className="text-3xl font-bold text-center">
+      <div className="bg-green-400 h-[25vh] pt-10 w-full">
+        <h1 className="text-5xl font-bold text-center text-black pt-3">
           Book Hotel And HomeStay
         </h1>
       </div>
@@ -106,7 +119,7 @@ const Hotel = () => {
         <div className="flex px-20  p-9 bg-white  rounded-xl gap-7 relative -top-14 items-center   w-[70vw] justify-center">
           {/* SEARCH  */}
           <div className="max-w-90 relative mr-6">
-            <label className="block text-sm font-medium text-gray-700 absolute -top-4 left-3 bg-white p-1 ">
+            <label className="block text-md font-medium text-gray-700 absolute -top-4.5 left-4 bg-white  p-1 ">
               Where to
             </label>
             <input
@@ -123,7 +136,7 @@ const Hotel = () => {
             {/* CHECK IN */}
             <label
               htmlFor="checkin"
-              className="block text-sm font-medium text-gray-700 mb-2 absolute left-3 bg-white px-1 -top-2.4x"
+              className="block text-md font-medium text-gray-700 mb-2 absolute left-3 bg-white px-1 -top-3.5"
             >
               Check-in
             </label>
@@ -140,7 +153,7 @@ const Hotel = () => {
           <div className="max-w-40 relative">
             <label
               htmlFor="checkin"
-              className="block text-sm font-medium text-gray-700 mb-2 absolute left-3 bg-white px-1 -top-2.4x"
+              className="block text-md font-medium text-gray-700 mb-2 absolute left-3 bg-white px-1 -top-3.5"
             >
               Check-out
             </label>
@@ -155,7 +168,7 @@ const Hotel = () => {
           <div>
             <button 
             onClick={handleSearch}
-            className="bg-green-500 text-xl font-bold p-2.5 px-10 rounded-md ml-4 text-mist-100 ">
+            className="bg-green-400 text-xl font-bold p-2.5 px-10 rounded-md ml-4 text-white shadow-md hover:scale-98">
               SEARCH
             </button>
           </div>
@@ -181,9 +194,11 @@ const Hotel = () => {
                       <input
                         className="mr-2"
                         type="checkbox"
+                        name={filt.id}
                         value={option.value}
                         onChange={(e) =>
-                        {checkboxChange(e, option)}
+                        {handleFilterChange(
+                            filt.id, option.value, e.target.checked)}
                         }
                       />
                       {option.label}
@@ -213,6 +228,8 @@ const Hotel = () => {
       </section>
     </div>
   );
-};
+
+}
+
 
 export default Hotel;

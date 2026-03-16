@@ -2,7 +2,7 @@ import React from "react";
 
 const HotelCards = ({ hoteldata }) => {
   return (
-    <div className="flex gap-6 p-3 bg-white rounded-lg transition w-full cursor-pointer border-2 border-transparent hover:border-neutral-400"
+    <div className="flex gap-6 p-3 bg-white rounded-lg w-full cursor-pointer border-2 border-transparent  shadow-sm hover:scale-102 transition-all  "
     
     >
       {/* Image */}
@@ -48,13 +48,13 @@ const HotelCards = ({ hoteldata }) => {
         </div>
 
         {/* Bottom */}
-        <div className="flex justify-between items-center mt-4">
+        <div className="flex justify-between items-center mt-4  " >
           <div>
-            <p className="text-lg font-semibold text-green-600">{hoteldata.price}</p>
+            <p className="text-lg font-semibold text-green-600">{`₹${hoteldata.price}/ per night `}</p>
             <p className="text-xs text-gray-500">Taxes included</p>
           </div>
 
-          <button className="bg-black hover:bg-green-600 text-white px-6 py-2 rounded-md font-medium transition">
+          <button className="bg-black hover:bg-emerald-600 text-white px-6 py-2 rounded-md font-medium transition  duration-300 ease-out">
             Book Now
           </button>
         </div>

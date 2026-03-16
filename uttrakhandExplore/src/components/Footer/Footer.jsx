@@ -1,12 +1,13 @@
 import React from "react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-gray-300 pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-6">
         {/* Top Grid */}
-        <div className="grid md:grid-cols-4 gap-10">
+        <div className="grid md:grid-cols-5 gap-10">
           {/* Brand */}
           <div>
             <h2 className="text-2xl font-bold text-white mb-4">Uttarakhand</h2>
@@ -23,16 +24,43 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li className="hover:text-white cursor-pointer transition">
-                Home
+                    <Link to="/">Home</Link>
               </li>
               <li className="hover:text-white cursor-pointer transition">
-                Destinations
+                    <Link to="/tourpackages">Tour Packages</Link>
               </li>
               <li className="hover:text-white cursor-pointer transition">
-                    Culture
+                    <Link to="/hotel">Hotel Booking</Link>
               </li>
               <li className="hover:text-white cursor-pointer transition">
-                Contact
+                    <Link to="/destination">Destinations</Link>
+              </li>
+              <li className="hover:text-white cursor-pointer transition">
+                    <Link to="/culture">Culture</Link>
+              </li>
+              <li className="hover:text-white cursor-pointer transition">
+                <Link to="/contact">Contact</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Hotel Booking*/}
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">
+                Tour Packages
+            </h3>
+            <ul className="space-y-2">
+              <li className="hover:text-white cursor-pointer transition">
+              <Link to="/tourpackages">Popular Tour Packages</Link>
+              </li>
+              <li className="hover:text-white cursor-pointer transition">
+                <Link to='/destination'>Nanital Tour Package</Link>
+              </li>
+              <li className="hover:text-white cursor-pointer transition">
+                    <Link to='/destination'>Pilgrimage Tour Package</Link>
+              </li>
+              <li className="hover:text-white cursor-pointer transition">
+                    <Link to='/destination'>Trek Packages</Link>
               </li>
             </ul>
           </div>
@@ -44,19 +72,21 @@ const Footer = () => {
             </h3>
             <ul className="space-y-2">
               <li className="hover:text-white cursor-pointer transition">
-                Rishikesh
+                <Link to='/destination'>Rishikesh</Link>
               </li>
               <li className="hover:text-white cursor-pointer transition">
-                Auli
+                <Link to='/destination'>Auli</Link>
               </li>
               <li className="hover:text-white cursor-pointer transition">
-                Nainital
+                    <Link to='/destination'>Nainital </Link>
               </li>
               <li className="hover:text-white cursor-pointer transition">
-                Kedarnath
+                    <Link to='/destination'>Kedarnath </Link>
               </li>
             </ul>
           </div>
+
+          {/* Tour Packages */}
 
           {/* //Culture */}
           <div> 
@@ -79,23 +109,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
-          {/* <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Subscribe</h3>
-            <p className="text-sm mb-4">
-              Get updates about new adventures & offers.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full px-3 py-2 rounded-l-lg text-black focus:outline-none"
-              />
-              <button className="bg-green-600 px-4 rounded-r-lg hover:bg-green-700 transition">
-                Go
-              </button>
-            </div>
-          </div> */}
+
         </div>
 
         {/* Divider */}

@@ -15,7 +15,7 @@ const  hotels = [
         "Swimming Pool",
         "Power Backup"
       ],
-      price : "₹812 / night"
+      price:"1000"
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const  hotels = [
         "Swimming Pool",
         "Power Backup"
       ],
-      price : "₹1050 / night"
+      price : "1050"
     },
     {
       id: 3,
@@ -51,7 +51,7 @@ const  hotels = [
         "Swimming Pool",
         "Power Backup"
       ],
-      price : "₹1478 / night"
+      price : "1478"
     },
     {
         id: 4,
@@ -70,7 +70,7 @@ const  hotels = [
           "Restaurant",
           "Power Backup"
         ],
-        price: "₹1899 / night"
+        price: "1899"
       },
       {
         id: 5,
@@ -89,7 +89,7 @@ const  hotels = [
           "River View",
           "Power Backup"
         ],
-        price: "₹2149 / night"
+        price: "2149"
       },
       {
         id: 6,
@@ -108,7 +108,7 @@ const  hotels = [
           "Restaurant",
           "Power Backup"
         ],
-        price: "₹2599 / night"
+        price: "2599"
       },
       {
         id: 7,
@@ -127,7 +127,7 @@ const  hotels = [
           "Conference Room",
           "Power Backup"
         ],
-        price: "₹1650 / night"
+        price: "1650"
       },
       {
         id: 8,
@@ -146,7 +146,7 @@ const  hotels = [
           "Room Service",
           "Power Backup"
         ],
-        price: "₹1499 / night"
+        price: "1499"
       },
       {
         id: 9,
@@ -165,7 +165,7 @@ const  hotels = [
           "Bonfire",
           "Power Backup"
         ],
-        price: "₹2899 / night"
+        price: "2899"
       }
   ];
 
