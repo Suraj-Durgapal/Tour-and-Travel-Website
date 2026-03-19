@@ -10,7 +10,7 @@ const HotelCards = ({ hoteldata }) => {
         <img
             
           className="w-full h-55 object-cover rounded-lg"
-          src={hoteldata.img}
+          src={hoteldata.img[0].img1}
           alt={hoteldata.name}
         />
       </div>
@@ -37,7 +37,7 @@ const HotelCards = ({ hoteldata }) => {
           <ul className="flex flex-wrap gap-2 mt-3 text-sm">
           {hoteldata.amenities.map((item, index) => (
                 <li
-                className="bg-gray-100 px-2 py-1 rounded"
+                className="bg-gray-200 px-2 py-1 rounded"
                 key={index}>{item}</li>
          ))}
             {/* <li className="bg-gray-100 px-2 py-1 rounded">Free Wifi</li>
@@ -50,11 +50,11 @@ const HotelCards = ({ hoteldata }) => {
         {/* Bottom */}
         <div className="flex justify-between items-center mt-4  " >
           <div>
-            <p className="text-lg font-semibold text-green-600">{`₹${hoteldata.price}/ per night `}</p>
+            <p className="text-lg font-semibold text-green-600">{`₹${hoteldata.rooms[0].price}/ per night `}</p>
             <p className="text-xs text-gray-500">Taxes included</p>
           </div>
 
-          <button className="bg-black hover:bg-emerald-600 text-white px-6 py-2 rounded-md font-medium transition  duration-300 ease-out">
+          <button className="bg-black hover:bg-emerald-600 text-white px-6 py-2 rounded-md font-medium transition  duration-300 ease-out cursor-pointer">
             Book Now
           </button>
         </div>

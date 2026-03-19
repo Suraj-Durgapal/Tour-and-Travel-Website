@@ -11,21 +11,49 @@ import TourPackages from "./pages/Tour/TourPackages";
 import CharDham from "./pages/Tour/TourPages/CharDham";
 import Hotel from "./pages/Hotel/Hotel";
 import HotelDetails from "./pages/Hotel/HotelDetails";
+import BookHotel from "./pages/Hotel/BookHotel";
+import MyBooking from "./pages/MyBooking";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { Login } from "./pages/Login";
+import { Signup } from "./pages/Signup";
 
 const App = () => {
   return (
     <div>
       <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/" element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/tourpackages" element={<TourPackages/>}  />
-          <Route path="/hotel" element={<Hotel/>}  />
+          <Route path="/tourpackages" element={<TourPackages />} />
+          <Route path="/hotel" element={<Hotel />} />
           <Route path="/hotel/:id" element={<HotelDetails />} />
-          <Route path="chardham" element={<CharDham/>}  />
+          <Route path="chardham" element={<CharDham />} />
           <Route path="destination" element={<Destination />} />
           <Route path="culture" element={<Culture />} />
           <Route path="spiritual" element={<Spiritual />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="/bookhotel" element={<BookHotel/>}/>
+          <Route path="/mybooking" element={<MyBooking/>}/>
+
+
+          {/* <Route
+            path="/bookhotel"
+            element={
+              <ProtectedRoute>
+                <BookHotel />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="/mybooking"
+            element={
+              <ProtectedRoute>
+                <MyBooking />
+              </ProtectedRoute>
+            }
+          /> */}
         </Route>
       </Routes>
     </div>

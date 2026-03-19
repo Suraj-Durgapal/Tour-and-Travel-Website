@@ -89,9 +89,9 @@ const Contact = () => {
             </div>
           </div>
         </ div>
-        <div className="w-full p-10l">
+        <div className="w-full p-10">
           <img
-            className="p-3 pt-20"
+            className="p-3 pt-5"
             src={cntimage}
             alt="contact image"
           />

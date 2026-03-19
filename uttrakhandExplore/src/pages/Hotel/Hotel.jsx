@@ -168,7 +168,7 @@ const Hotel = () => {
           <div>
             <button 
             onClick={handleSearch}
-            className="bg-green-400 text-xl font-bold p-2.5 px-10 rounded-md ml-4 text-white shadow-md hover:scale-98">
+            className="bg-green-400 text-xl font-bold p-2.5 px-10 rounded-md ml-4 text-white shadow-md hover:scale-98 cursor-pointer">
               SEARCH
             </button>
           </div>
