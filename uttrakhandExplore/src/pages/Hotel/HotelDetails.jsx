@@ -1,13 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { FaWifi } from "react-icons/fa";
 import { PiFanDuotone } from "react-icons/pi";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import hotels from "../../data/hotels";
 
 const HotelDetails = () => {
-  const { id } = useParams();
-  const selectedHotel = hotels.find((hotel) => hotel.id === Number(id));
+  const navigate = useNavigate();
+  const { hotelId } = useParams();
+  const selectedHotel = hotels.find((hotel) => hotel.id === Number(hotelId));
   return (
     <div className=" w-full bg-[#f8f6f2]">
       {/* Hotel Details */}
@@ -67,7 +68,7 @@ const HotelDetails = () => {
                                     </div>
                                 </div> */}
           </div>
-          <div className="flex  justify-between p-4 w-1/3 pr-20 bg-white font-medium rounded-md shadow-md h-50 flex-wrap">
+          <div className="flex  justify-between p-4 w-1/4  bg-white font-medium rounded-md shadow-md h-50 flex-wrap">
             <div className="w-40">
               <h4>{selectedHotel.name}</h4>
               <p>{selectedHotel.rooms[0].capacity}</p>
@@ -75,12 +76,14 @@ const HotelDetails = () => {
               <p>1 Room</p>
             </div>
             <div>
-              <p className="text-green-600">₹{selectedHotel.rooms[0].price}/ night</p>
+              <p className="text-green-600">
+                ₹{selectedHotel.rooms[0].price}/ night
+              </p>
               <p className="text-xs text-gray-500">Taxes included</p>
             </div>
             <div className="w-full">
               <button className="bg-green-600 w-full px-20 p-2 mt-8 text-white font-medium text-lg">
-                Book
+                Room Options
               </button>
             </div>
           </div>
@@ -90,41 +93,53 @@ const HotelDetails = () => {
           <h2 className="text-2xl font-medium pb-3 pl-2">
             More Rooms Available:
           </h2>
-         {selectedHotel.rooms.map((room)=>(
-          <div key={room.id} className="flex  bg-white w-full shadow-lg shadow-neutral-300">
-            <div className="flex-1 p-2 pl-3 ">
-              <h2 className="font-medium text-xl pb-2 text-shadow-sm text-shadow-neutral-300 pl-1">
-                {room.type}
-              </h2>
-              <img
-                className="rounded-lg"
-                src={selectedHotel.img[0].img1}
-                alt=""
-              />
-            </div>
-            <div className="flex-1 p-4 pt-8 pl-5">
-              <h3 className="pb-8 font-semibold text-lg pt-4">Room No: {room.id}</h3>
-              <ol className="font-semibold list-disc pl-4">
-                <li className="mb-1">Meals available at extra charges</li>
-                <li className="mb-1">Free Parking Available</li>
-                <li className="mb-1">5km from the Nanital City</li>
-              </ol>
-            </div>
-            <div className="flex-1 p-7 text-lg  pt-18">
-              <h4 className="mb-1 ">{selectedHotel.discount}off</h4>
-              <div className="mb-4 tracking-tight leading-6 ">
-                <p className="font-medium text-2xl text-green-600">₹{room.price}/ night</p>
-                <p className="text-md pl-1 opacity-90 text-neutral-600">+ taxes include</p>
+          {selectedHotel.rooms.map((room) => (
+            <div
+              key={room.id}
+              className="flex  bg-white w-full shadow-lg shadow-neutral-300"
+            >
+              <div className="flex-1 p-2 pl-3 ">
+                <h2 className="font-medium text-xl pb-2 text-shadow-sm text-shadow-neutral-300 pl-1">
+                  {room.type}
+                </h2>
+                <img
+                  className="rounded-lg"
+                  src={selectedHotel.img[0].img1}
+                  alt=""
+                />
               </div>
-              <div>
-                <Link to="/bookhotel">
-                  <button className="border-green-500 border-2 rounded-md  p-2 px-6 cursor-pointer hover:bg-green-500 text-xl font-medium transition  duration-150 hover:text-white">
+              <div className="flex-1 p-4 pt-8 pl-5">
+                <h3 className="pb-8 font-semibold text-lg pt-4">
+                  Room No: {room.id}
+                </h3>
+                <ol className="font-semibold list-disc pl-4">
+                  <li className="mb-1">Meals available at extra charges</li>
+                  <li className="mb-1">Free Parking Available</li>
+                  <li className="mb-1">5km from the Nanital City</li>
+                </ol>
+              </div>
+              <div className="flex-1 p-7 text-lg  pt-18">
+                <h4 className="mb-1 ">{selectedHotel.discount}off</h4>
+                <div className="mb-4 tracking-tight leading-6 ">
+                  <p className="font-medium text-2xl text-green-600">
+                    ₹{room.price}/ night
+                  </p>
+                  <p className="text-md pl-1 opacity-90 text-neutral-600">
+                    + taxes include
+                  </p>
+                </div>
+                <div>
+                  <button
+                    onClick={() =>
+                      navigate(`/hotel/${hotelId}/room/${room.id}`)
+                    }
+                    className="border-green-500 border-2 rounded-md  p-2 px-6 cursor-pointer hover:bg-green-500 text-xl font-medium transition  duration-150 hover:text-white"
+                  >
                     Select Room
                   </button>
-                </Link>
+                </div>
               </div>
             </div>
-          </div>
           ))}
         </div>
       </section>

@@ -4,8 +4,21 @@ function MyBookings() {
   const [bookings, setBookings] = useState([]);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("bookings")) || [];
-    setBookings(data);
+    const fetchBookings = async () => {
+      const token = localStorage.getItem("accessToken");
+      if (!token) return;
+
+      const res = await fetch("http://localhost:8000/bookings", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+      setBookings(data);
+    };
+
+    fetchBookings();
   }, []);
 
   if (bookings.length === 0) {
@@ -26,40 +39,30 @@ function MyBookings() {
 
       <h2 className="text-2xl font-bold text-green-600 mb-4">All Bookings</h2>
 
-      {bookings.map((booking, index) => (
+      {bookings.map((booking) => (
         <div
-          key={index}
+          key={booking.id}
           className="bg-white shadow-md rounded-xl p-5 flex flex-col md:flex-row justify-between items-start md:items-center"
         >
           <div className="flex flex-col md:flex-row gap-4">
+            {/* <img src={booking.hotel.img[0].img1} alt="" /> */}
             <div>
-              <span className="font-medium text-gray-600">Name:</span>{" "}
-              <span className="text-gray-800">`{booking.firstName} {booking.lastName}`</span>
-            </div>
-            {/* <div>
-              <span className="font-medium text-gray-600">Last Name:</span>{" "}
-              <span className="text-gray-800">{booking.lastName}</span>
-            </div> */}
-            <div>
-              <span className="font-medium text-gray-600">Email:</span>{" "}
-              <span className="text-gray-800">{booking.email}</span>
+              <span className="font-medium text-gray-600">Hotel ID:</span>{" "}
+              <span className="text-gray-800">{booking.hotel_id}</span>
             </div>
             <div>
-              <span className="font-medium text-gray-600">Mobile:</span>{" "}
-              <span className="text-gray-800">{booking.mobile}</span>
+              <span className="font-medium text-gray-600">Room ID:</span>{" "}
+              <span className="text-gray-800">{booking.room_id  }</span>
+            </div>
+            <div>
+              <span className="font-medium text-gray-600">Room Type:</span>{" "}
+              <span className="text-gray-800">{booking.room_type}</span>
+            </div>
+            <div>
+              <span className="font-medium text-gray-600">Booked At:</span>{" "}
+              <span className="text-gray-800">{new Date(booking.created_at).toLocaleString()}</span>
             </div>
           </div>
-
-          <button
-            onClick={() => {
-              const updated = bookings.filter((_, i) => i !== index);
-              localStorage.setItem("bookings", JSON.stringify(updated));
-              setBookings(updated);
-            }}
-            className="mt-4 md:mt-0 bg-red-400 hover:bg-red-500 text-white py-2 px-4 rounded-lg transition"
-          >
-            Cancel
-          </button>
         </div>
       ))}
     </div>

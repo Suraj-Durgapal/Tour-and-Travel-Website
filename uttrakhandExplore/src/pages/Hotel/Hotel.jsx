@@ -22,10 +22,10 @@ const Hotel = () => {
       id: "Price",
       head: "Price",
       options: [
-        { value: "₹1000", label: "₹0 - ₹1000" },
-        { value: "₹1100", label: "₹1000 - ₹2500" },
-        { value: "₹2500", label: "₹2500 - ₹5000" },
-        { value: "₹5000", label: " above ₹5000" },
+        { value: "₹1000", label: "₹0 - ₹1001" },
+        { value: "₹1100", label: "₹1000 - ₹2501" },
+        { value: "₹2500", label: "₹2500 - ₹5001" },
+        { value: "₹5000", label: " above ₹5001" },
       ],
     },
     // {
@@ -92,9 +92,9 @@ const Hotel = () => {
           filters.price.length === 0 ||
           filters.price.some(range => {
             if(range === "0-1000") return hotel.price <= 1000
-            if(range === "1000-2500") return hotel.price >1000 && hotel.price<=2500
-            if(range === "2500-5000") return hotel.price >2500 && hotel.price<=5000
-            if(range === "5000+") return hotel.price >5000
+            if(range === "1000-2501") return hotel.price >1000 && hotel.price<=2500
+            if(range === "2500-5001") return hotel.price >2500 && hotel.price<=5000
+            if(range === "5001+") return hotel.price >5000
           })
       
         // rating filter
@@ -233,3 +233,4 @@ const Hotel = () => {
 
 
 export default Hotel;
+    

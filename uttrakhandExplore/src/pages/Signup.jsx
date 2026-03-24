@@ -1,8 +1,10 @@
 import { useState } from "react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function Signup() {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -10,6 +12,8 @@ export function Signup() {
     confirmPassword: "",
   });
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
 
   const validate = () => {
     let newErrors = {};
@@ -33,10 +37,35 @@ export function Signup() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      console.log("Signup Data:", form);
+    setServerError("");
+    setSuccessMessage("");
+
+    if (!validate()) return;
+
+    try {
+      const response = await fetch("http://localhost:8000/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          password: form.password,
+        }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error((data && data.detail) || "Unable to create account");
+      }
+
+      setSuccessMessage("Account created successfully! Redirecting to login...");
+      setTimeout(() => navigate("/login"), 1200);
+    } catch (error) {
+      setServerError(error?.message ?? "Something went wrong");
     }
   };
 
@@ -130,13 +159,21 @@ export function Signup() {
             Create Account
           </button>
 
-          <p className="text-center text-sm text-gray-500 mt-6">
-            Already have an account? 
+          {serverError && (
+            <p className="text-center text-red-500 text-sm mt-4">{serverError}</p>
+          )}
+          {successMessage && (
+            <p className="text-center text-green-600 text-sm mt-4">
+              {successMessage}
+            </p>
+          )}
 
-            <Link to="/login">      
-                <span className="text-green-600 cursor-pointer   hover:underline pl-2">
+          <p className="text-center text-sm text-gray-500 mt-6">
+            Already have an account?{' '}
+            <Link to="/login">
+              <span className="text-green-600 cursor-pointer hover:underline">
                 Login
-                </span>
+              </span>
             </Link>
           </p>
         </form>

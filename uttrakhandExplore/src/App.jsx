@@ -27,13 +27,13 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/tourpackages" element={<TourPackages />} />
           <Route path="/hotel" element={<Hotel />} />
-          <Route path="/hotel/:id" element={<HotelDetails />} />
+          <Route path="/hotel/:hotelId" element={<HotelDetails />} />
           <Route path="chardham" element={<CharDham />} />
           <Route path="destination" element={<Destination />} />
           <Route path="culture" element={<Culture />} />
           <Route path="spiritual" element={<Spiritual />} />
           <Route path="contact" element={<Contact />} />
-          <Route path="/bookhotel" element={<BookHotel/>}/>
+          <Route path="/hotel/:hotelId/room/:roomId" element={<BookHotel />} />
           <Route path="/mybooking" element={<MyBooking/>}/>
 
 
